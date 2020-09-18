@@ -19,6 +19,7 @@ int main(void)
         GPIO_ResetBits(GPIOC, GPIO_Pin_13);
         Delay(100);
     }
+		// VDDA vs VSSA la gi ?
 
 
     return 0;
