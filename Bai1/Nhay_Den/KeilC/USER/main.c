@@ -5,13 +5,33 @@
 
 void GPIO_Config(void);
 void Clock_Config(void);
+void Delay(uint32_t);
 
 int main(void)
 {
-    // TODO: fix sau
+    Clock_Config();
+    SystemCoreClockUpdate();
+    GPIO_Config();
+    while (1)
+    {
+        GPIO_SetBits(GPIOC, GPIO_Pin_13);
+        Delay(100);
+        GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+        Delay(100);
+    }
+
+
     return 0;
 }
 /*Delay tuong doi*/
+
+void Delay(uint32_t t){
+    for (int i = 0; i < t; i++)
+    {
+        for (int j = 0; j < 0x2AFF; j++);
+    }
+    
+}
 
 
 void GPIO_Config()
