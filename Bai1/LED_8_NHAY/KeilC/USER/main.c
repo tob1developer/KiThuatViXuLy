@@ -2,22 +2,24 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
 
-
+uint16_t sangdan[8] = {0xFE, 0xFC, 0xF8, 0xF0, 0xE0, 0xC0, 0x80, 0x00};
 void GPIO_Config(void);
 void Clock_Config(void);
 void Delay(uint32_t);
 
 int main(void)
 {
-    Clock_Config();
-    SystemCoreClockUpdate();
+    Clock_Config(); // configuraion clock
+    
+    SystemCoreClockUpdate(); // update SystemCoreClock varibale
+    
     GPIO_Config();
-    while (1)
-    {
-        GPIO_SetBits(GPIOC, GPIO_Pin_13);
-        Delay(100);
-        GPIO_ResetBits(GPIOC, GPIO_Pin_13);
-        Delay(100);
+    
+    while(1){
+        for( int i = 0; i < 8; i++){
+            GPIO_Write(GPIOC, sangdan[i]);
+             Delay(100);
+         }
     }
 		// VDDA vs VSSA la gi ?
 
@@ -38,15 +40,17 @@ void Delay(uint32_t t){
 void GPIO_Config()
 {
     GPIO_InitTypeDef GPIO_InitStructure;
-    
     /*enble clock for GPIOC*/
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+    /*Configuration GPIO pin*/
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     
-	/*Configuration GPIO pin*/
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_13;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 |
+    GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+    
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+    
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
 }
 
 void Clock_Config(void)
