@@ -14,9 +14,14 @@ int main(void)
     GPIO_Config();
     while (1)
     {
-        GPIO_SetBits(GPIOC, GPIO_Pin_13);
+        // GPIO_SetBits(GPIOC, GPIO_Pin_13);
+        // Delay(100);
+        // GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+        // Delay(100);
+
+        GPIO_SetBits(GPIOA, GPIO_Pin_13);
         Delay(100);
-        GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+        GPIO_ResetBits(GPIOA, GPIO_Pin_13);
         Delay(100);
     }
 		// VDDA vs VSSA la gi ?
@@ -30,6 +35,12 @@ void Delay(uint32_t t){
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < 0x2AFF; j++);
+        /**
+         * 0xAFF = 2815^t -> big(n.t)
+         * thuc ra ko phai la delay ma do minh tao for de no lap 1s -> cai duoi
+         * 
+        */
+    
     }
     
 }
@@ -39,14 +50,18 @@ void GPIO_Config()
 {
     GPIO_InitTypeDef GPIO_InitStructure;
     
-    /*enble clock for GPIOC*/
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+    // /*enble clock for GPIOC*/
+	// RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
     
+    /*enble clock for GPIOA*/
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+
 	/*Configuration GPIO pin*/
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_13;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	// GPIO_Init(GPIOC, &GPIO_InitStructure);
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
 
 void Clock_Config(void)
