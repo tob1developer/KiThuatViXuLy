@@ -1,6 +1,10 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
 // 0 la sang 1 la tat
+
+uint16_t led_4_0 = 0xF0;
+uint16_t led_0_4 = 0x0F;
+
 void Delay(uint32_t);
 void GPIO_Config(void);
 void Clock_Config(void);
@@ -10,9 +14,8 @@ int main(void){
     SystemCoreClockUpdate(); // update SystemCoreClock varibale
     GPIO_Config();
     
-    uint16_t led_4_0 = 0xF0;
-    uint16_t led_0_4 = 0x0F;
 
+    
     while(1){
 
         GPIO_Write(GPIOA, led_4_0);
