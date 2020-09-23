@@ -1,7 +1,6 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
-
-uint16_t sangdan[8]={0xFE, 0xFC, 0xF8, 0xF0, 0xE0, 0xC0, 0x80, 0x00};
+// 0 la sang 1 la tat
 void Delay(uint32_t);
 void GPIO_Config(void);
 void Clock_Config(void);
@@ -10,16 +9,24 @@ int main(void){
     Clock_Config(); // configuraion clock
     SystemCoreClockUpdate(); // update SystemCoreClock varibale
     GPIO_Config();
+    
+    uint16_t led_4_0 = 0xF0;
+    uint16_t led_0_4 = 0x0F;
 
     while(1){
-        for( int i = 0; i < 8; i++){
-            GPIO_Write(GPIOC, sangdan[i]);
-            Delay(100);
-        }
+
+        GPIO_Write(GPIOA, led_4_0);
+        Delay(100);
+        GPIO_Write(GPIOA, led_0_4);
+        Delay(100);
     }
+
+    return 0;
 }
 /*Delay tuong doi*/
 void Delay(uint32_t t){
+
+    
     unsigned int i,j;
 
     for(i=0;i<t;i++){
@@ -31,8 +38,8 @@ void Delay(uint32_t t){
 void GPIO_Config(){
     GPIO_InitTypeDef GPIO_InitStructure;
 
-    /*enble clock for GPIOC*/
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+    /*enble clock for GPIOA*/
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
 
     /*Configuration GPIO pin*/
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
@@ -44,8 +51,8 @@ void GPIO_Config(){
     /*?*/
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 
-    /*khoi tao cong C ( postC)*/
-    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    /*khoi tao cong A ( postA)*/
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
 
 void Clock_Config(void){
