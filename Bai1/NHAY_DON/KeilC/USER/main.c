@@ -32,7 +32,6 @@ int main(void)
     Single_Led_Port_A();
 		// VDDA vs VSSA la gi ?
 
-
     return 0;
 }
 
