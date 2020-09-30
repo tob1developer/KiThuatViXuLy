@@ -1,6 +1,7 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
 uint16_t LED7SEG[10]={0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80,0x90};
+
 void Delay(uint32_t);
 void GPIO_Config(void);
 void Clock_Config(void);
@@ -14,8 +15,9 @@ int main(void){
 		int i = 0;
 		for(i = 0; i < 10; i++){
 			GPIO_Write(GPIOC, LED7SEG[i]);
-			Delay(100);
+		Delay(100);
 	}
+		
  }
 }
 /*Delay tuong doi*/
