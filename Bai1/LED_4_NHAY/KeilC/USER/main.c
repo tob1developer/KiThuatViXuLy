@@ -3,8 +3,9 @@
 // 0 la sang 1 la tat
 
 uint16_t led_sang_dan[4] = {0x7F,0xDF,0xF7,0xFD};
-uint16_t led_chan_le[2] = {0x55, 0x252};
-uint16_t led_sang_dan_trong_ra_ngoai[4] = {0xE7,0x303, 0x201, 0x00};
+uint16_t led_chan_le[2] = {0x125, 0x252};
+// loi 
+uint16_t led_sang_dan_trong_ra_ngoai[4] = {0x347, 0x303, 0x201, 0x00};
 void Delay(uint32_t);
 void GPIO_Config(void);
 void Clock_Config(void);
@@ -16,34 +17,39 @@ int main(void){
 
     while (1)
     {
+			int i = 0;
         //sang dan 
-        for (int i = 0; i < 4; i++){
+        for (i = 0; i < 4; i++){
             GPIO_Write(GPIOA, led_sang_dan[i]);
             Delay(100);
         } 
+				GPIO_ResetBits(GPIOA, GPIO_Pin_All);
         Delay(100);
 
         //tat dan
-        for (int i = 3; i >= 0; i--){
+        for (i = 3; i >= 0; i--){
             GPIO_Write(GPIOA, led_sang_dan[i]);
             Delay(100);
         } 
+				GPIO_ResetBits(GPIOA, GPIO_Pin_All);
         Delay(100);
         //chan le
-        for (int i = 0; i < 2; i++){
+        for (i = 0; i < 2; i++){
             GPIO_Write(GPIOA, led_chan_le[i]);
             Delay(100);
         } 
+				GPIO_ResetBits(GPIOA, GPIO_Pin_All);
+				Delay(100);
         
         //sang dan tu trong ra ngoai
-        for (int i = 0; i < 4; i++){
+        for (i = 0; i < 4; i++){
             GPIO_Write(GPIOA, led_sang_dan_trong_ra_ngoai[i]);
             Delay(100);
         } 
+				GPIO_ResetBits(GPIOA, GPIO_Pin_All);
         Delay(100);
-
     }
-    
+   
     
     return 0;
 }
