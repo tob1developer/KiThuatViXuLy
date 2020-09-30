@@ -36,20 +36,22 @@ int main(void)
     GPIO_ResetBits(PORT_LED, LED2); //LED2 = 0;
 
     while(1){
-        for(uint8_t i = 0; i < 100; i++){
-            for(uint8_t j = 0; j < 24; j++){
-                GPIO_Write(PORT_LED7SEG_CODE, LED7SEG[i/10]);
-                GPIO_SetBits(PORT_LED, LED1); // LED1 = 1
-                Delay(1);
+				uint8_t i = 0;
+        for(i = 0; i < 100; i++){
+					uint8_t j = 0;
+					for( j = 0; j < 24; j++){
+							GPIO_Write(PORT_LED7SEG_CODE, LED7SEG[i/10]);
+							GPIO_SetBits(PORT_LED, LED1); // LED1 = 1
+							Delay(1);
 
-                GPIO_ResetBits(PORT_LED, LED1); //LED1 = 0
+							GPIO_ResetBits(PORT_LED, LED1); //LED1 = 0
 
-                GPIO_Write(PORT_LED7SEG_CODE, LED7SEG[i%10]);
-                GPIO_SetBits(PORT_LED, LED2); //LED2 = 1
-                Delay(1);
+							GPIO_Write(PORT_LED7SEG_CODE, LED7SEG[i%10]);
+							GPIO_SetBits(PORT_LED, LED2); //LED2 = 1
+							Delay(1);
 
-                GPIO_ResetBits(PORT_LED, LED2); //L7S2 = 0
-            }
+							GPIO_ResetBits(PORT_LED, LED2); //L7S2 = 0
+					}
         }
     }
 }
