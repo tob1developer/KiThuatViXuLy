@@ -501,9 +501,9 @@ Image Symbol Table
     RCC_SYSCLKConfig                         0x08000509   Thumb Code    18  stm32f10x_rcc.o(i.RCC_SYSCLKConfig)
     SystemCoreClockUpdate                    0x08000609   Thumb Code   142  system_stm32f10x.o(i.SystemCoreClockUpdate)
     SystemInit                               0x080006ad   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
-    main                                     0x0800070d   Thumb Code   150  main.o(i.main)
-    Region$$Table$$Base                      0x080007b0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080007d0   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x0800070d   Thumb Code   290  main.o(i.main)
+    Region$$Table$$Base                      0x0800083c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800085c   Number         0  anon$$obj.o(Region$$Table)
     LED7SEG                                  0x20000000   Data          20  main.o(.data)
     SystemCoreClock                          0x20000014   Data           4  system_stm32f10x.o(.data)
     AHBPrescTable                            0x20000018   Data          16  system_stm32f10x.o(.data)
@@ -518,9 +518,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x000007f8, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00000884, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x08000000, Size: 0x000007d0, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x08000000, Size: 0x0000085c, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -602,8 +602,8 @@ Memory Map of the image
     0x08000528   0x000000e0   Code   RO          445    i.SetSysClockTo72   system_stm32f10x.o
     0x08000608   0x000000a4   Code   RO          446    i.SystemCoreClockUpdate  system_stm32f10x.o
     0x080006ac   0x00000060   Code   RO          447    i.SystemInit        system_stm32f10x.o
-    0x0800070c   0x000000a4   Code   RO          406    i.main              main.o
-    0x080007b0   0x00000020   Data   RO          637    Region$$Table       anon$$obj.o
+    0x0800070c   0x00000130   Code   RO          406    i.main              main.o
+    0x0800083c   0x00000020   Data   RO          637    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000028, Max: 0xffffffff, ABSOLUTE)
@@ -630,14 +630,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       314         22          0         20          0       3034   main.o
+       454         22          0         20          0       3178   main.o
         64         26        236          0       1536        868   startup_stm32f10x_md.o
        290          0          0          0          0     219097   stm32f10x_gpio.o
        292         56          0          0          0       5925   stm32f10x_rcc.o
        492         50          0         20          0       3013   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-      1454        154        268         40       1536     231937   Object Totals
+      1594        154        268         40       1536     232081   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          0          0          0          0   (incl. Padding)
 
@@ -686,15 +686,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1732        170        268         40       1632     231477   Grand Totals
-      1732        170        268         40       1632     231477   ELF Image Totals
-      1732        170        268         40          0          0   ROM Totals
+      1872        170        268         40       1632     231621   Grand Totals
+      1872        170        268         40       1632     231621   ELF Image Totals
+      1872        170        268         40          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2000 (   1.95kB)
+    Total RO  Size (Code + RO Data)                 2140 (   2.09kB)
     Total RW  Size (RW Data + ZI Data)              1672 (   1.63kB)
-    Total ROM Size (Code + RO Data + RW Data)       2040 (   1.99kB)
+    Total ROM Size (Code + RO Data + RW Data)       2180 (   2.13kB)
 
 ==============================================================================
 
