@@ -1,7 +1,9 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
 
-#define BUTTON              GPIO_Pin_0
+#define BUTTON1              GPIO_Pin_0
+#define BUTTON2              GPIO_Pin_1
+
 #define PORT_BUTTON         GPIOB                
 #define PORT_BUTTON_CLOCK   RCC_APB2Periph_GPIOB // open chan B
 #define LED                 0x00FF          // open 8 chan dau 0 _> 7
@@ -22,9 +24,15 @@ int main(void)
     GPIO_Config();
 
     while(1){
-        int status = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON); 
-        if(status == 0) LED_ON
+        int status1 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1); 
+				int status2 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON2); 
+			
+        if(status1 == 0 || status2 == 0) LED_ON
         else LED_OFF
+					
+				
+       // if(status2 == 0) LED_ON
+       // else LED_OFF
     }
 }
 /*Delay tuong doi*/
@@ -43,9 +51,14 @@ void GPIO_Config(){
 
     /*Configuration GPIO pin*/
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
-    GPIO_InitStructure.GPIO_Pin = BUTTON;
+    GPIO_InitStructure.GPIO_Pin = BUTTON1;
     GPIO_Init(PORT_BUTTON,&GPIO_InitStructure);
 
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_InitStructure.GPIO_Pin = BUTTON2;
+    GPIO_Init(PORT_BUTTON,&GPIO_InitStructure);
+
+	
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Pin = LED;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
