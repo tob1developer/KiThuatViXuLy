@@ -10,8 +10,8 @@
 #define PORT_LED            GPIOC
 #define PORT_LED_CLOCK      RCC_APB2Periph_GPIOC // open chan C 
 
-#define LED_ON              GPIO_ResetBits(PORT_LED, LED);
-#define LED_OFF             GPIO_SetBits(PORT_LED, LED);
+#define LED_ON              GPIO_ResetBits(PORT_LED, LED); // reset thi default => 1
+#define LED_OFF             GPIO_SetBits(PORT_LED, LED);  // set bit ve ko 
 
 void Delay(uint32_t);
 void GPIO_Config(void);
@@ -19,21 +19,22 @@ void Clock_Config(void);
 
 int main(void)
 {
- Clock_Config(); // configuraion clock
- SystemCoreClockUpdate(); // update SystemCoreClock varibale
- GPIO_Config();
+    Clock_Config(); // configuraion clock
+    SystemCoreClockUpdate(); // update SystemCoreClock varibale
+    GPIO_Config();
 
- GPIO_SetBits(PORT_LED, LED);
- while(1){
+    GPIO_SetBits(PORT_LED, LED);
+    while(1){
 
-		if(GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0)
- {
-	while(GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0);
- GPIO_WriteBit(PORT_LED, LED,
-(BitAction)(1^GPIO_ReadOutputDataBit(PORT_LED, LED)));
- }
+        if(GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0)
+        {
+            Delay(2);
+            // neu bo dong 32 thi no tro ve trang thai ban dau. i think so. ti test 
+            while(GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0);
 
- }
+            GPIO_WriteBit(PORT_LED, LED,(BitAction)(1^GPIO_ReadOutputDataBit(PORT_LED, LED)));
+        }
+    }
 }
 /*Delay tuong doi*/
 void Delay(uint32_t t){
@@ -53,11 +54,6 @@ void GPIO_Config(){
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_InitStructure.GPIO_Pin = BUTTON1;
     GPIO_Init(PORT_BUTTON,&GPIO_InitStructure);
-
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
-    GPIO_InitStructure.GPIO_Pin = BUTTON2;
-    GPIO_Init(PORT_BUTTON,&GPIO_InitStructure);
-
 	
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Pin = LED;
