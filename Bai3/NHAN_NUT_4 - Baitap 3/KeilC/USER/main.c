@@ -1,12 +1,14 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
 
-#define BUTTON1              GPIO_Pin_0
-#define BUTTON2              GPIO_Pin_1
+uint16_t LED7SEG[10]={0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+
+#define BUTTON1              GPIO_Pin_0 // +1
+#define BUTTON2              GPIO_Pin_1 // -1 
 
 #define PORT_BUTTON         GPIOB                
 #define PORT_BUTTON_CLOCK   RCC_APB2Periph_GPIOB // open chan B
-#define LED                 0x00FF          // open 8 chan dau 0 _> 7
+#define LED                 0x007f          // open 8 chan dau 0 _> 6
 #define PORT_LED            GPIOC
 #define PORT_LED_CLOCK      RCC_APB2Periph_GPIOC // open chan C 
 
@@ -23,16 +25,17 @@ int main(void)
     SystemCoreClockUpdate(); // update SystemCoreClock varibale
     GPIO_Config();
 
+    int tmp = 0;
+
     while(1){
         int status1 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1); 
-				int status2 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON2); 
-			
-        if(status1 == 0 || status2 == 0) LED_ON
-        else LED_OFF
-					
-				
-       // if(status2 == 0) LED_ON
-       // else LED_OFF
+        int status2 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON2); 
+
+        if( status1 == 0) tmp++;
+        if( status2 == 0) tmp--;
+
+        GPIO_SetBits(PORT_LED, LED7SEG[tmp - 1]);
+        GPIO_ResetBits(PORT_LED, LED7SEG[tmp]);
     }
 }
 /*Delay tuong doi*/
