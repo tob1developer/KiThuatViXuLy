@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LED_7_THANH.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LED_7_THANH.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Tue Oct 13 08:16:55 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Tue Oct 13 20:45:54 2020
 <BR><P>
 <H3>Maximum Stack Usage =         32 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -486,6 +486,10 @@ Global Symbols
 
 <P><STRONG><a name="[8a]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, indicate_semi.o(.text), UNUSED)
 
+<P><STRONG><a name="[5e]"></a>Delay</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(i.Delay))
+<BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
 <P><STRONG><a name="[57]"></a>GPIO_Config</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, main.o(i.GPIO_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIO_Config &rArr; GPIO_Init
 </UL>
@@ -501,15 +505,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Config
 </UL>
 
-<P><STRONG><a name="[5d]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
+<P><STRONG><a name="[5f]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[5e]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[5f]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
+<P><STRONG><a name="[5d]"></a>GPIO_Write</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_Write))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -564,15 +564,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(.text)
 </UL>
-<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = main &rArr; GPIO_Config &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Config
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Clock_Config
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>

@@ -21,21 +21,22 @@ void Clock_Config(void);
 
 int main(void)
 {
+		int tmp = 0;
+	
     Clock_Config(); // configuraion clock
     SystemCoreClockUpdate(); // update SystemCoreClock varibale
     GPIO_Config();
 
-    int tmp = 0;
-
     while(1){
-        int status1 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1); 
-        int status2 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON2); 
-
-        if( status1 == 0) tmp++;
-        if( status2 == 0) tmp--;
-
-        GPIO_SetBits(PORT_LED, LED7SEG[tmp - 1]);
-        GPIO_ResetBits(PORT_LED, LED7SEG[tmp]);
+			
+				GPIO_Write(PORT_LED, LED7SEG[tmp]);
+				Delay(15);
+				 
+        if( GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0) tmp++;
+        if( GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON2) == 0) tmp--;
+			
+				if(tmp < 0) tmp = 9;
+				if(tmp > 9) tmp = 0;
     }
 }
 /*Delay tuong doi*/

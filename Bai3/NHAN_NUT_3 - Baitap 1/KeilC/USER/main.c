@@ -1,17 +1,18 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
 
+uint16_t LED_6[7]={ 0x03F0, 0x03E1, 0x03C3,  0x0387, 0x030F,  0x021F, 0x003F};
+
 #define BUTTON1              GPIO_Pin_0
 #define BUTTON2              GPIO_Pin_1
 
 #define PORT_BUTTON         GPIOB                
 #define PORT_BUTTON_CLOCK   RCC_APB2Periph_GPIOB // open chan B
-#define LED                 0x00FF          // open 8 chan dau 0 _> 7
+#define LED                 0x03FF          
 #define PORT_LED            GPIOC
 #define PORT_LED_CLOCK      RCC_APB2Periph_GPIOC // open chan C 
 
-#define LED_ON              GPIO_ResetBits(PORT_LED, LED);
-#define LED_OFF             GPIO_SetBits(PORT_LED, LED);
+#define LED_OFF            GPIO_SetBits(PORT_LED, LED);
 
 void Delay(uint32_t);
 void GPIO_Config(void);
@@ -19,6 +20,8 @@ void Clock_Config(void);
 
 int main(void)
 {
+		int tmp = 0;
+	
     Clock_Config(); // configuraion clock
     SystemCoreClockUpdate(); // update SystemCoreClock varibale
     GPIO_Config();
@@ -27,12 +30,14 @@ int main(void)
 		LED_OFF
 	
     while(1){
-        int status1 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1); 
-				int status2 = GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON2); 
+        GPIO_Write(PORT_LED, LED_6[tmp]);
+				Delay(15);
 			
-        if(status1 == 0) LED_ON
-        if(status2 == 0) LED_OFF
+        if( GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0 ) tmp++;
+        if( GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON2) == 0 ) tmp--;
 					
+				if(tmp > 6) tmp = 6;
+				if(tmp < 0) tmp = 0;
 				
        // if(status2 == 0) LED_ON
        // else LED_OFF
@@ -43,7 +48,7 @@ void Delay(uint32_t t){
     unsigned int i,j;
 
     for(i=0;i<t;i++){
-    for(j=0;j< 0x2AFF; j++);
+    for(j=0;j< +0x2AFF; j++);
     }
 }
 void GPIO_Config(){

@@ -1,11 +1,11 @@
 .\objects\system_stm32f10x.o: RTE\Device\STM32F103C8\system_stm32f10x.c
-.\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
+.\objects\system_stm32f10x.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
 .\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
 .\objects\system_stm32f10x.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
+.\objects\system_stm32f10x.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h
 .\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_conf.h
 .\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
-.\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
+.\objects\system_stm32f10x.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
 .\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h
 .\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h
 .\objects\system_stm32f10x.o: ..\LIB\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h

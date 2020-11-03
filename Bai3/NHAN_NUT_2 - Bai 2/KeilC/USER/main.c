@@ -29,7 +29,6 @@ int main(void)
         if(GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0)
         {
             Delay(2);
-            // neu bo dong 32 thi no tro ve trang thai ban dau. i think so. ti test 
             while(GPIO_ReadInputDataBit(PORT_BUTTON, BUTTON1) == 0);
 
 						// neu bo dong tren thi den kieu nhap nhay vi dong 36 no se nhay khi bam -> den sang -> 1 -> 37 -> 0 nen nhap nhay
