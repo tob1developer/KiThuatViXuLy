@@ -1,0 +1,12 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\stm32f10x_rcc.o"
+".\objects\stm32f10x_gpio.o"
+".\objects\stm32f10x_exti.o"
+".\objects\misc.o"
+".\objects\startup_stm32f10x_md.o"
+".\objects\system_stm32f10x.o"
+--strict --scatter ".\Objects\NGATNGOAI.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\NGATNGOAI.map" -o .\Objects\NGATNGOAI.axf

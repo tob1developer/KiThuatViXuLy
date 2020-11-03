@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<WORKSPACE>
+ <FRAME activewindow="0">
+  <PLACEMENT>2c00000000000000010000000083ffff0083ffffffffffffffffffff8d00000017000000730b000019070000</PLACEMENT>
+  <WINDOW type="default" module="ISIS"/>
+ </FRAME>
+ <MODULE name="VSMDEBUG">
+  <PWI>
+   <POPUP w="800" x="214" flags="00000002" y="269" h="200" pid="0" iid="-1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="350" x="234" flags="00000032" y="289" h="200" pid="1" iid="-1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="254" flags="0000000a" y="309" h="32" pid="200" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="274" flags="0000000a" y="329" h="32" pid="210" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="294" flags="0000000a" y="349" h="32" pid="220" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="314" flags="0000000a" y="369" h="32" pid="230" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="334" flags="0000000a" y="389" h="32" pid="240" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="354" flags="0000000a" y="409" h="32" pid="250" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="374" flags="0000000a" y="429" h="32" pid="260" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="394" flags="0000000a" y="449" h="32" pid="270" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="414" flags="0000000a" y="469" h="32" pid="280" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="434" flags="0000000a" y="489" h="32" pid="290" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="454" flags="0000000a" y="509" h="32" pid="300" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="474" flags="0000000a" y="529" h="32" pid="310" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="494" flags="0000000a" y="549" h="32" pid="320" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="514" flags="0000000a" y="569" h="32" pid="190" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="534" flags="0000000a" y="589" h="32" pid="340" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="554" flags="0000000a" y="609" h="32" pid="350" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="574" flags="0000000a" y="629" h="32" pid="360" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="594" flags="0000000a" y="649" h="32" pid="370" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="614" flags="0000000a" y="669" h="32" pid="380" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="634" flags="0000000a" y="689" h="32" pid="390" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="654" flags="0000000a" y="709" h="32" pid="400" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="674" flags="0000000a" y="729" h="32" pid="410" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="694" flags="0000000a" y="749" h="32" pid="420" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="714" flags="0000000a" y="769" h="32" pid="430" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="734" flags="0000000a" y="789" h="32" pid="440" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="754" flags="0000000a" y="809" h="32" pid="450" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="774" flags="0000000a" y="829" h="32" pid="460" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="794" flags="0000000a" y="849" h="32" pid="470" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="814" flags="0000000a" y="869" h="32" pid="480" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="16" x="834" flags="0000000a" y="889" h="32" pid="490" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="600" x="854" flags="0000002b" y="909" h="400" pid="100" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="300" x="874" flags="0000000b" y="929" h="300" pid="101" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="30" x="894" flags="00000008" y="949" h="13" pid="102" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="22" x="914" flags="00000008" y="969" h="18" pid="191" iid="1">
+    <PROPERTIES/>
+   </POPUP>
+  </PWI>
+ </MODULE>
+</WORKSPACE>
