@@ -44,11 +44,34 @@ int main(void)
 	GPIO_Config();
     
     while(1){
+        // Chu H
         for(uint8_t i = 0; i < 8; i++){
             GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
             GPIO_Write(GPIO_COL, chuH[i]); // tu trai qua phai hay tu phai qua trai
             Delay(1);            
         }   
+        Delay(100);
+        //Chu A
+        for(uint8_t i = 0; i < 8; i++){
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, chuA[i]); // tu trai qua phai hay tu phai qua trai
+            Delay(1);            
+        }  
+        Delay(100);
+        // Chu B
+        for(uint8_t i = 0; i < 8; i++){
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, chuB[i]); // tu trai qua phai hay tu phai qua trai
+            Delay(1);            
+        }  
+        Delay(100);
+        // Chu C
+        for(uint8_t i = 0; i < 8; i++){
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, chuC[i]); // tu trai qua phai hay tu phai qua trai
+            Delay(1);            
+        }  
+        Delay(100);
     }       
 
 }
