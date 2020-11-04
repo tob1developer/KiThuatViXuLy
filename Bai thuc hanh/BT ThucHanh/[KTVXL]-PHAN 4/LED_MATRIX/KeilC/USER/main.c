@@ -25,7 +25,11 @@
 #define GPIO_PIN_COL_7  GPIO_Pin_14 // khai bao cot 7
 #define GPIO_PIN_COL_8  GPIO_Pin_15 // khai bao cot 8
 
-unsigned int chuH[]={0x3C00,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00,0x3C00};
+unsigned int chuA[8]={0x8100,0x8100,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00};
+unsigned int chuB[8]={0x0300,0x3c00,0x3C00,0x0300,0x0300,0x3C00,0x3C00,0x0300};
+unsigned int chuC[8]={0xC300,0x3C00,0x3C00,0x3700,0x3C00,0x3900,0x8100,0x8300};
+
+unsigned int chuH[8]={0x3C00,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00,0x3C00};
 //unsigned int chuE[]={0x8000, 0x8000,0xFC00,0x8000,0x8000,0xFC00,0x8000 ,0x8000};
 
 
@@ -41,8 +45,8 @@ int main(void)
     
     while(1){
         for(uint8_t i = 0; i < 8; i++){
-            GPIO_Write(GPIO_ROW, 0x01 << i);
-            GPIO_Write(GPIO_COL, chuH[i]);
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, chuH[i]); // tu trai qua phai hay tu phai qua trai
             Delay(1);            
         }   
     }       
