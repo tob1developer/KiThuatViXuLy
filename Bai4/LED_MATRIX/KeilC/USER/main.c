@@ -61,53 +61,19 @@ int main(void){
 	GPIO_Config();
 
 	while(1){
-		RunChuCai(chuA);
-		ResetLed();
-		RunChuCai(chuB);
-		ResetLed();
-		RunChuCai(chuC);
+		RunChuCai(chuT);
 		ResetLed();
 		RunChuCai(chuD);
 		ResetLed();
-		RunChuCai(chuE);
+		RunChuCai(chuH);
 		ResetLed();
-		RunChuCai(chuF);
+		RunChuCai(chuH);
 		ResetLed();
-		RunChuCai(chuG);
-		ResetLed();
-		RunChuCai(chuI);
-		ResetLed();
-		RunChuCai(chuJ);
-		ResetLed();
-		RunChuCai(chuK);
-		ResetLed();
-		RunChuCai(chuL);
-		ResetLed();
-		RunChuCai(chuM);
-		ResetLed();
-		RunChuCai(chuN);
-		ResetLed();
-		RunChuCai(chuO);
-		ResetLed();
-		RunChuCai(chuP);
-		ResetLed();
-		RunChuCai(chuQ);
-		ResetLed();
-		RunChuCai(chuR);
-		ResetLed();
-		RunChuCai(chuS);
+		RunChuCai(chuD);
 		ResetLed();
 		RunChuCai(chuT);
 		ResetLed();
-		RunChuCai(chuU);
-		ResetLed();
-		RunChuCai(chuV);
-		ResetLed();
-		RunChuCai(chuX);
-		ResetLed();
-		RunChuCai(chuY);
-		ResetLed();
-
+		
 	}
 	
 	return 0;
@@ -120,7 +86,7 @@ void RunChuCai(int ArrChuCai[]){
 		uint8_t i = 0;
 		for(i = 0; i < 8; i++){
             GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
-            GPIO_Write(GPIO_COL, ArrChuCai[i]); // tu trai qua phai hay tu phai qua trai
+            GPIO_Write(GPIO_COL, ArrChuCai[i]); // tu trai qua phai
             Delay(1);            
         }  
 		tmp--;
