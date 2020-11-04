@@ -25,53 +25,53 @@ unsigned int chuH[]={0x3C00,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00,0x3C00};
 unsigned int chuA[8]={0x8100,0x8100,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00};
 unsigned int chuB[8]={0x0300,0x3c00,0x3C00,0x0300,0x0300,0x3C00,0x3C00,0x0300};
 unsigned int chuC[8]={0xC300,0x3C00,0x3C00,0x3700,0x3C00,0x3900,0x8100,0x8300};
+unsigned int Reset = 0xFF00;
+
 
 
 void Delay(uint32_t);
 void GPIO_Config(void);
 void Clock_Config(void);
-int main(void)
-{
- Clock_Config(); // configuraion clock
- SystemCoreClockUpdate(); // update SystemCoreClock varibale
- GPIO_Config();
+void ResetLed(void);
+void RunChuCai(int ArrChuCai[]);
 
- while(1){
-	 int dem = 4;
-	 while(dem){
-				uint8_t i = 0;
-				 for(i =0; i < 8; i++){
-					 GPIO_Write(GPIO_ROW, 0x01 << i);
-					 GPIO_Write(GPIO_COL, chuH[i]);
-					 Delay(1);
-					}
-		 
-		 	 Delay(1000);
-        //Chu A
-        for(uint8_t i = 0; i < 8; i++){
-            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
-            GPIO_Write(GPIO_COL, chuA[i]); // tu trai qua phai hay tu phai qua trai
-            Delay(1);            
-        }  
-        Delay(1000);
-        // Chu B
-        for(uint8_t i = 0; i < 8; i++){
-            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
-            GPIO_Write(GPIO_COL, chuB[i]); // tu trai qua phai hay tu phai qua trai
-            Delay(1);            
-        }  
-        Delay(1000);
-        // Chu C
-        for(uint8_t i = 0; i < 8; i++){
-            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
-            GPIO_Write(GPIO_COL, chuC[i]); // tu trai qua phai hay tu phai qua trai
-            Delay(1);            
-        }  
-        Delay(1000);
-				dem--;
-	 }
-	 }
+int main(void){
+	Clock_Config(); // configuraion clock
+	SystemCoreClockUpdate(); // update SystemCoreClock varibale
+	GPIO_Config();
+
+	while(1){
+		RunChuCai(chuA);
+		ResetLed();
+	}
+	
+	return 0;
+
 }
+void RunChuCai(int ArrChuCai[]){
+	int tmp = 100;
+	while (tmp)
+	{
+		uint8_t i = 0;
+		for(i = 0; i < 8; i++){
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, ArrChuCai[i]); // tu trai qua phai hay tu phai qua trai
+            Delay(1);            
+        }  
+		tmp--;
+	}
+}
+
+void ResetLed(){
+	uint8_t i = 0;
+	for(i =0; i < 8; i++){
+		GPIO_Write(GPIO_ROW, 0x01 << i);
+		GPIO_Write(GPIO_COL, Reset);
+		Delay(1);
+	}
+	Delay(100);
+}
+
 
 void Delay(uint32_t t)
 {
