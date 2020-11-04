@@ -43,13 +43,17 @@ int main(void){
 	while(1){
 		RunChuCai(chuA);
 		ResetLed();
+		RunChuCai(chuB);
+		ResetLed();
+		RunChuCai(chuC);
+		ResetLed();
 	}
 	
 	return 0;
 
 }
 void RunChuCai(int ArrChuCai[]){
-	int tmp = 100;
+	int tmp = 50;
 	while (tmp)
 	{
 		uint8_t i = 0;

@@ -22,19 +22,27 @@ Dialog DLL:      TCM.DLL V1.14.6.0
  
 <h2>Project:</h2>
 C:\Users\user\Desktop\KiThuatViXuLy\Bai4\LED_MATRIX\KeilC\Project\LED_8.uvprojx
-Project File Date:  09/18/2020
+Project File Date:  11/03/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling main.c...
-..\USER\main.c(126): warning:  #1-D: last line of file ends without a newline
+..\USER\main.c(44): warning:  #167-D: argument of type "unsigned int *" is incompatible with parameter of type "int *"
+  		RunChuCai(chuA);
+..\USER\main.c(46): warning:  #167-D: argument of type "unsigned int *" is incompatible with parameter of type "int *"
+  		RunChuCai(chuB);
+..\USER\main.c(48): warning:  #167-D: argument of type "unsigned int *" is incompatible with parameter of type "int *"
+  			RunChuCai(chuC);
+..\USER\main.c(52): warning:  #111-D: statement is unreachable
+  	return 0;
+..\USER\main.c(128): warning:  #1-D: last line of file ends without a newline
   }
-..\USER\main.c: 1 warning, 0 errors
+..\USER\main.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=1836 RO-data=268 RW-data=148 ZI-data=1636  
+Program Size: Code=1776 RO-data=268 RW-data=152 ZI-data=1632  
 FromELF: creating hex file...
-".\Objects\GPIO.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\GPIO.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,11 +69,11 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:4.3.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\system_stm32f10x.c
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Include file:  RTE_Driver\Config\RTE_Device.h
-Build Time Elapsed:  00:00:01
+      Source file:   Device\Source\system_stm32f10x.c
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
