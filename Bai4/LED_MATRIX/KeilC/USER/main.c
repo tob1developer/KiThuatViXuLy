@@ -20,8 +20,13 @@
 #define GPIO_PIN_COL_6 GPIO_Pin_13 // khai bao cot 6
 #define GPIO_PIN_COL_7 GPIO_Pin_14 // khai bao cot 7
 #define GPIO_PIN_COL_8 GPIO_Pin_15 // khai bao cot 8
-unsigned int
-chuH[]={0x3C00,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00,0x3C00};
+unsigned int chuH[]={0x3C00,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00,0x3C00};
+
+unsigned int chuA[8]={0x8100,0x8100,0x3C00,0x3C00,0x0000,0x0000,0x3C00,0x3C00};
+unsigned int chuB[8]={0x0300,0x3c00,0x3C00,0x0300,0x0300,0x3C00,0x3C00,0x0300};
+unsigned int chuC[8]={0xC300,0x3C00,0x3C00,0x3700,0x3C00,0x3900,0x8100,0x8300};
+
+
 void Delay(uint32_t);
 void GPIO_Config(void);
 void Clock_Config(void);
@@ -32,12 +37,39 @@ int main(void)
  GPIO_Config();
 
  while(1){
-	 uint8_t i = 0;
-	 for(i = 0; i < 8; i++){
-		 GPIO_Write(GPIO_ROW, 0x01 << i);
-		 GPIO_Write(GPIO_COL, chuH[i]);
-		 Delay(1);
-		}
+	 int dem = 4;
+	 while(dem){
+				uint8_t i = 0;
+				 for(i =0; i < 8; i++){
+					 GPIO_Write(GPIO_ROW, 0x01 << i);
+					 GPIO_Write(GPIO_COL, chuH[i]);
+					 Delay(1);
+					}
+		 
+		 	 Delay(1000);
+        //Chu A
+        for(uint8_t i = 0; i < 8; i++){
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, chuA[i]); // tu trai qua phai hay tu phai qua trai
+            Delay(1);            
+        }  
+        Delay(1000);
+        // Chu B
+        for(uint8_t i = 0; i < 8; i++){
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, chuB[i]); // tu trai qua phai hay tu phai qua trai
+            Delay(1);            
+        }  
+        Delay(1000);
+        // Chu C
+        for(uint8_t i = 0; i < 8; i++){
+            GPIO_Write(GPIO_ROW, 0x01 << i); //tu tren xuong duoi
+            GPIO_Write(GPIO_COL, chuC[i]); // tu trai qua phai hay tu phai qua trai
+            Delay(1);            
+        }  
+        Delay(1000);
+				dem--;
+	 }
 	 }
 }
 
